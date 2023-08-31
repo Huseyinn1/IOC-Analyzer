@@ -1,14 +1,12 @@
 # -*- coding: utf-8 -*-
 import logging
-import os
-
+from ioc_collector.config import settings
 import httpx
-from dotenv import load_dotenv
-load_dotenv()
+
 logger = logging.getLogger(__name__)
 
 # config okunacak
-ALIENVAULT_API_KEY = os.getenv("ALIENVAULT_API_KEY")
+ALIENVAULT_API_KEY = settings.ALIENVAULT_API_KEY
 ALIENVAULT_URL = "https://otx.alienvault.com"
 
 async def analyze_ioc_and_save(ioc: str) -> tuple[str, str]:

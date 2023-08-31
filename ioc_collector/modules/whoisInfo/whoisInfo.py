@@ -1,11 +1,10 @@
 # -*- coding: utf-8 -*-
-import os
+
 from urllib.request import urlopen
 from typing import Any
-from dotenv import load_dotenv
+from ioc_collector.config import settings
 
-load_dotenv()
-WHOIS_INFO_API_KEY = os.getenv("WHOIS_INFO_API_KEY")
+WHOIS_INFO_API_KEY = settings.WHOIS_INFO_API_KEY
 WHOIS_URL = "https://www.whoisxmlapi.com/whoisserver/WhoisService"
 
 

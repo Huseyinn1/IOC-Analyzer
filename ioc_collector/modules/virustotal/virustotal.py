@@ -1,9 +1,9 @@
-import os
+# -*- coding: utf-8 -*-
 import httpx
-from dotenv import load_dotenv
-import asyncio
-load_dotenv()
-VIRUSTOTAL_API_KEY = os.getenv("VIRUSTOTAL_API_KEY")
+from ioc_collector.config import settings
+
+
+VIRUSTOTAL_API_KEY = settings.VIRUSTOTAL_API_KEY
 VIRUS_TOTAL_URL = "https://www.virustotal.com"
 
 

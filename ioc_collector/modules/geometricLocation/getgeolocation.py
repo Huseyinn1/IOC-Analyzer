@@ -2,7 +2,6 @@
 
 import httpx
 import logging
-from bs4 import BeautifulSoup
 
 logger = logging.getLogger(__name__)
 
@@ -36,40 +35,5 @@ async def get_geometric_location(ip):
 def analyze_url(url):
     domain = url.split("//")[-1].split("/")[0]
     return domain
-
-
-def get_url_data(url):
-    response = httpx.get(url, verify=False)
-    if response.status_code == 200:
-        return response.text
-    else:
-        return None
-
-
-
-
-
-# Dosya indirme bağlantılarını bulan fonksiyon
-def find_download_links(url_data):
-    if url_data is None:
-        return []
-
-    soup = BeautifulSoup(url_data, "html.parser")
-    download_links = [
-        a["href"]
-        for a in soup.find_all("a", href=True)
-        if a["href"].endswith((".exe", ".msi", ".zip", ".rar"))
-    ]
-    return download_links
-
-
-# Dosya indirme bağlantılarının izin kontrolleri
-def check_download_links(download_links):
-    safe_links = []
-    for link in download_links:
-        response = httpx.head(link)
-        if response.status_code == 200:
-            safe_links.append(link)
-    return safe_links
 
 

@@ -1,16 +1,15 @@
 # -*- coding: utf-8 -*-
 
-import os
+
 import httpx
 import logging
-import json
-import asyncio
+from ioc_collector.config import settings
 from typing import Union
-from dotenv import load_dotenv
 
-load_dotenv()
-GREY_NOISE_KEY = os.getenv("GREY_NOISE_KEY")
+GREY_NOISE_KEY = settings.GREY_NOISE_KEY
+
 GREY_NOISE_URL = "https://api.greynoise.io/v3/community"
+
 headers = {"accept": "application/json", "key": GREY_NOISE_KEY}
 
 logger = logging.getLogger(__name__)

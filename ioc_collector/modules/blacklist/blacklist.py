@@ -1,15 +1,12 @@
 # -*- coding: utf-8 -*-
 
-import os
 import httpx
 import logging
-from dotenv import load_dotenv
-
-load_dotenv()
+from ioc_collector.config import settings
 
 logger = logging.getLogger(__name__)
 
-BLACKLIST_API_KEY = os.getenv("BLACKLIST_API_KEY")
+BLACKLIST_API_KEY = settings.BLACKLIST_API_KEY
 HETRIX_TOOLS_URL = "https://api.hetrixtools.com/v2"
 
 

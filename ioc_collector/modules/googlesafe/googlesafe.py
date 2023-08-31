@@ -4,10 +4,11 @@ import os
 import httpx
 import logging
 from typing import Union
-from dotenv import load_dotenv
-load_dotenv()
+from ioc_collector.config import settings
 
-GOOGLE_SAFE_BROWSING_API_KEY = os.getenv("GOOGLE_SAFE_BROWSING_API_KEY")
+
+
+GOOGLE_SAFE_BROWSING_API_KEY = settings.GOOGLE_SAFE_BROWSING_API_KEY
 GOOGLE_SAFE_URL = "https://safebrowsing.googleapis.com"
 
 logger =  logging.getLogger(__name__)

@@ -1,13 +1,16 @@
-import os
+# -*- coding: utf-8 -*-
+
 import httpx
 import logging
-from dotenv import load_dotenv
+from ioc_collector.config import settings
 
-load_dotenv()
+
+
 logger = logging.getLogger(__name__)
 
-VIRUSTOTAL_API_KEY = os.getenv("VIRUSTOTAL_API_KEY")
+VIRUSTOTAL_API_KEY = settings.VIRUSTOTAL_API_KEY
 VIRUS_TOTAL_URL = "https://www.virustotal.com"
+
 HEADERS = {"x-apikey": VIRUSTOTAL_API_KEY}
 
 
